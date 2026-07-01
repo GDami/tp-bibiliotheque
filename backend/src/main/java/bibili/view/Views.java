@@ -18,6 +18,6 @@ public class Views {
 //		
 //		public class Matiere extends Common {}
 //			
-//		public class Ordinateur extends Common {}
+		public class Editeur extends Common {}
 		
 }
