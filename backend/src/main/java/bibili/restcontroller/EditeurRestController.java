@@ -38,6 +38,13 @@ public class EditeurRestController {
 	{
 		return daoEditeur.findById(numero).orElse(null);
 	}
+	
+	@GetMapping("/{numero}/livres")
+	@JsonView(Views.Editeur.class)
+	public Editeur chercherParNumeroAvecLivres(@PathVariable Integer numero)  
+	{
+		return daoEditeur.findByIdWithLivres(numero);
+	}
 
 	
 	@DeleteMapping("/{numero}")

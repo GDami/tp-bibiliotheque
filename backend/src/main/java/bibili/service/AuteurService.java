@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import bibili.idao.IDAOAuteur;
+import bibili.dao.IDAOAuteur;
 import bibili.model.Auteur;
 
 @Service
@@ -22,6 +22,11 @@ public class AuteurService {
 	public Auteur getById(Integer id)
 	{
 		return idaoAuteur.findById(id).orElse(null);
+	}
+
+	public Auteur getByIdWithLivres(Integer id)
+	{
+		return idaoAuteur.findByIdWithLivres(id);
 	}
 
 	public Auteur insert(Auteur auteur)

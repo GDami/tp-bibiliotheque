@@ -20,7 +20,6 @@ import bibili.view.Views;
 
 @RestController
 @RequestMapping("/api/auteur")
-// @CrossOrigin("http://localhost:4200")
 public class AuteurRestController {
 
 	@Autowired
@@ -36,6 +35,12 @@ public class AuteurRestController {
 	@JsonView(Views.Auteur.class)
 	public Auteur chercherParId(@PathVariable Integer id) {
 		return auteurSrv.getById(id);
+	}
+
+	@GetMapping("/{id}/livres")
+	@JsonView(Views.AuteurWithLivres.class)
+	public Auteur chercherParIdAvecLivres(@PathVariable Integer id) {
+		return auteurSrv.getByIdWithLivres(id);
 	}
 
 	@DeleteMapping("/{id}")
