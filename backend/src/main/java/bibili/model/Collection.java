@@ -1,10 +1,16 @@
 package bibili.model;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
+import bibili.view.Views;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Collection {
@@ -13,8 +19,12 @@ public class Collection {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(length = 20)
+    @Column(length = 20, nullable=false)
     private String nom;
+
+    @OneToMany(mappedBy = "collection")
+    @JsonView(Views.CollectionWithLivres.class)
+    private List<Livre> livres;
 
     public Collection() {}
 
