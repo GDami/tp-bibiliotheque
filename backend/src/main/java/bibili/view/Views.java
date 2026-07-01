@@ -15,9 +15,14 @@ public class Views {
 //				public class FormateurWithModules extends Formateur {}
 		
 		public class Auteur extends Common {}
-//		
-//		public class Matiere extends Common {}
-//			
-//		public class Ordinateur extends Common {}
+			public class AuteurWithLivres extends Auteur {}
+			
+		public class Editeur extends Common {}
+			public class EditeurWithLivres extends Editeur {}
+			
+		public class Collection extends Common {}
+			public class CollectionWithLivres extends Collection {}
+			
+		public class Livre extends Common {}
 		
 }

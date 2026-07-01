@@ -1,14 +1,17 @@
 package bibili.model;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonView;
 
+import bibili.view.Views;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import bibili.view.Views;
 
 @Entity
 @Table(name="auteur")
@@ -29,6 +32,10 @@ public class Auteur {
 	@Column(length = 35,nullable = false)
 	@JsonView(Views.Common.class)
 	private String nationalite;
+
+    @OneToMany(mappedBy = "auteur")
+    @JsonView(Views.AuteurWithLivres.class)
+    private List<Livre> livres;
 	
 	public Auteur() {}
 	

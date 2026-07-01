@@ -32,6 +32,11 @@ public class CollectionRestController {
         return collectionSrv.getById(id);
     }
 
+    @GetMapping("/{id}/livres")
+    public Collection chercherParIdAvecLivres(@PathVariable Integer id) {
+        return collectionSrv.getByIdWithLivres(id);
+    }
+
     @PostMapping
     public Collection ajouter(@RequestBody Collection collection) {
         return collectionSrv.insert(collection);

@@ -22,6 +22,10 @@ public class CollectionService {
         return daoCollection.findById(id).orElse(null);
     }
 
+	public Collection getByIdWithLivres(Integer id)	{
+		return daoCollection.findByIdWithLivres(id);
+	}
+
     public Collection insert(Collection collection) {
         return daoCollection.save(collection);
     }
