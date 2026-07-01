@@ -33,7 +33,7 @@ public class Livre {
     private int annee;
 
     @ManyToOne
-    @JoinColumn(name="editeur, nullable=false")
+    @JoinColumn(name="editeur", nullable=false)
     @JsonView(Views.Livre.class)
     private Editeur editeur;
     
