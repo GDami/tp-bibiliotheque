@@ -2,6 +2,17 @@ pipeline {
     agent any
 
     stages {
+        
+        stage('Git checkout') {
+            steps {
+                script {
+                    git credentialsId: 'git-login',
+                        url: 'git@github.com:GDami/tp-bibiliotheque.git',
+                        branch: 'main'
+                }
+            }
+        }
+        
         stage('Maven Package') {
             agent {
                 docker {
@@ -16,10 +27,9 @@ pipeline {
             }
 
             steps {
-                dir('tp-bibliotheque/backend') {
-                    withSonarQubeEnv('SonarQube'){
-						sh "mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Quest-Boot -Dsonar.projectName='Quest Boot'"
-					}
+                dir('backend') {
+                    sh "mvn clean package"
+					
                 }
             }
         }
