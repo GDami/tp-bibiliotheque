@@ -6,8 +6,8 @@ import { AuthService } from '../../service/auth-service';
 @Component({
   selector: 'app-login-page',
   imports: [ ReactiveFormsModule ],
-  templateUrl: './login.html',
-  styleUrl: './login.css',
+  templateUrl: './login-page.html',
+  styleUrl: './login-page.css',
 })
 export class LoginPage implements OnInit {
   protected formAuth!: FormGroup;
@@ -28,7 +28,7 @@ export class LoginPage implements OnInit {
 
   public auth() {
     this.authService.auth(this.formAuth.getRawValue()).subscribe(() => {
-      this.router.navigate([ 'matiere' ]);
+      this.router.navigate([ 'collection' ]);
     });
   }
 }

@@ -19,7 +19,7 @@ services:
       interval: 5s
 
   java:
-    image: bibili-backend
+    build: .
 
     networks:
       - bibili
