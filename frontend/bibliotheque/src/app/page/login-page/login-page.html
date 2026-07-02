@@ -1,0 +1,27 @@
+<h1>Page de connexion</h1>
+
+<form (submit)="auth()" [formGroup]="formAuth">
+  <div>
+    <input type="text" formControlName="login" />
+  </div>
+
+  @if (formCtrlUsername.dirty && formCtrlUsername.invalid) {
+    <div>Le nom d'utilisation est obligatoire</div>
+  }
+
+  <div>
+    <input type="password" formControlName="password" />
+  </div>
+
+  @if (formCtrlPassword.dirty && formCtrlPassword.hasError('required')) {
+    <div>Le mot de passe est obligatoire</div>
+  }
+
+  @if (formCtrlPassword.dirty && formCtrlPassword.hasError('minlength')) {
+    <div>Le mot de passe doit faire 6 caractères minimum</div>
+  }
+
+  <div>
+    <input [disabled]="formAuth.invalid" type="submit" value="Se connecter" />
+  </div>
+</form>
