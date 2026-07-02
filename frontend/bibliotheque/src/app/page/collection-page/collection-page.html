@@ -1,0 +1,27 @@
+<h1>Liste des collections</h1>
+
+<form (ngSubmit)="isEditing ? update() : add()">
+  <input [(ngModel)]="form.nom" name="nom" placeholder="Nom de la collection" required />
+  <button type="submit">{{ isEditing ? 'Modifier' : 'Ajouter' }}</button>
+  <button type="button" *ngIf="isEditing" (click)="cancel()">Annuler</button>
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nom</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let collection of collections$ | async">
+      <td>{{ collection.id }}</td>
+      <td>{{ collection.nom }}</td>
+      <td>
+        <button (click)="edit(collection)">Modifier</button>
+        <button (click)="remove(collection)">Supprimer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
