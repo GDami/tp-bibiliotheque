@@ -60,7 +60,7 @@ public class EditeurRestController {
 	}
 	
 	@PutMapping("/{numero}")
-	public Editeur modifier(@PathVariable Integer id,@RequestBody Editeur editeur)  
+	public Editeur modifier(@PathVariable("numero") Integer id,@RequestBody Editeur editeur)  
 	{
 		editeur.setId(id);
 		return daoEditeur.save(editeur);
