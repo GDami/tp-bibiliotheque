@@ -1,0 +1,53 @@
+<h1>Liste des livres</h1>
+
+<form (submit)="addOrUpdate()" [formGroup]="formLivre">
+  <div>
+    <input type="text" formControlName="titre" />
+  </div>
+  <div *ngIf="formCtrlTitre.dirty && formCtrlTitre.hasError('required')">
+    Le titre est obligatoire !!
+  </div>
+  <div>
+    <input type="text" formControlName="resume" />
+  </div>
+  <div *ngIf="formCtrlResume.dirty && formCtrlResume.hasError('required')">
+    Le résumé est obligatoire !!
+  </div>
+  <div>
+    <input type="number" formControlName="annee" />
+  </div>
+  <div *ngIf="formCtrlAnnee.dirty && formCtrlAnnee.hasError('required')">
+    L'année est obligatoire !!
+  </div>
+
+  <div>
+    <input [disabled]="formLivre.invalid" type="submit" [value]="editingLivreId ? 'Modifier' : 'Ajouter'" />
+  </div>
+</form>
+
+<hr />
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Titre</th>
+      <th>Résumé</th>
+      <th>Année</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let livre of livres$ | async">
+      <td>{{ livre.id }}</td>
+      <td>{{ livre.titre }}</td>
+      <td>{{ livre.resume }}</td>
+      <td>{{ livre.annee }}</td>
+      <td>
+        <button (click)="edit(livre)">MODIFIER</button>
+        <button (click)="remove(livre)">SUPPRIMER</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
