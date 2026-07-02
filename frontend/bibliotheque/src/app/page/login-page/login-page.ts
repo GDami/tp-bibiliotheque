@@ -28,7 +28,7 @@ export class LoginPage implements OnInit {
 
   public auth() {
     this.authService.auth(this.formAuth.getRawValue()).subscribe(() => {
-      this.router.navigate([ 'matiere' ]);
+      this.router.navigate([ 'collection' ]);
     });
   }
 }
