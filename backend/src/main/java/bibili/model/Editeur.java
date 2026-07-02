@@ -71,7 +71,17 @@ public class Editeur {
         }
 
 
-        @Override
+        public List<Livre> getLivres() {
+			return livres;
+		}
+
+
+		public void setLivres(List<Livre> livres) {
+			this.livres = livres;
+		}
+
+
+		@Override
         public String toString() {
             return "Editeur [id=" + id + ", nom=" + nom + ", pays=" + pays + "]";
         }

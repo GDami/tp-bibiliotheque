@@ -66,6 +66,14 @@ public class Auteur {
 		return prenom;
 	}
 
+	public List<Livre> getLivres() {
+		return livres;
+	}
+
+	public void setLivres(List<Livre> livres) {
+		this.livres = livres;
+	}
+
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
