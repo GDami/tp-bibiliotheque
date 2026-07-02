@@ -1,5 +1,7 @@
 package bibili.model;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonView;
 
 import bibili.view.Views;
@@ -10,6 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -46,6 +49,10 @@ public class Livre {
     @JoinColumn(name="collection")
     @JsonView(Views.Livre.class)
     private Collection collection;
+
+    @OneToMany(mappedBy = "livre")
+    @JsonView(Views.Livre.class)
+    private List<Avis> avis;
 
     public Livre() {}
 
@@ -123,5 +130,13 @@ public class Livre {
 
     public void setCollection(Collection collection) {
         this.collection = collection;
+    }
+
+    public List<Avis> getAvis() {
+        return avis;
+    }
+
+    public void setAvis(List<Avis> avis) {
+        this.avis = avis;
     }
 }

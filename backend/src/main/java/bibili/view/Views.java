@@ -22,6 +22,9 @@ public class Views {
 			
 		public class Collection extends Common {}
 			public class CollectionWithLivres extends Collection {}
+		
+		public class Avis extends Common {}
+			public class AvisWithLivres extends Avis {}
 			
 		public class Livre extends Common {}
 		
