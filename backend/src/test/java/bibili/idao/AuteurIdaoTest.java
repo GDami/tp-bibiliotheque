@@ -106,6 +106,7 @@ public class AuteurIdaoTest {
 
     @Test
     @Sql(scripts = "classpath:/reset-id-auteur.sql")
+    @Sql(scripts = "classpath:/reset-id-collection.sql")
     @Sql(scripts = "classpath:/create-auteur.sql")
     @Sql(scripts = "classpath:/create-editeur.sql")
     @Sql(scripts = "classpath:/create-collection.sql")

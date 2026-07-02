@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.http.MediaType;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
@@ -98,19 +99,26 @@ public class EditeurRestControllerTest {
         editeur1.setId(1);
         editeur1.setNom("Editeur 1");
 
-        Mockito.when(this.repository.save(editeur1)).thenReturn(editeur1);
+        Mockito.when(this.repository.save(Mockito.any(Editeur.class))).thenReturn(editeur1);
 
         String url = "/api/editeur";
 
+         String json = """
+        {
+            "id": 1,
+            "nom": "Nouveau nom"
+        }
+        """;
+
         //when
-        ResultActions result = this.mockMvc.perform(MockMvcRequestBuilders.post(url));
+        ResultActions result = this.mockMvc.perform(MockMvcRequestBuilders.post(url).contentType("application/json").content(json));
 
         //then
         result.andExpect(MockMvcResultMatchers.status().isOk());
         result.andExpect(MockMvcResultMatchers.jsonPath("$").exists());
         result.andExpect(MockMvcResultMatchers.jsonPath("$.id").value(1));
         result.andExpect(MockMvcResultMatchers.jsonPath("$.nom").value("Editeur 1"));
-        Mockito.verify(this.repository).save(editeur1);
+        Mockito.verify(this.repository).save(Mockito.any(Editeur.class));
 
     }
 
