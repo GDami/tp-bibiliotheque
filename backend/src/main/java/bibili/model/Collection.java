@@ -49,7 +49,15 @@ public class Collection {
         this.nom = nom;
     }
 
-    @Override
+    public List<Livre> getLivres() {
+		return livres;
+	}
+
+	public void setLivres(List<Livre> livres) {
+		this.livres = livres;
+	}
+
+	@Override
     public String toString() {
         return "Collection [id=" + id + ", nom=" + nom + "]";
     }
