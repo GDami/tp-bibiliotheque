@@ -44,7 +44,7 @@ pipeline {
             steps {
                 dir('tp-bibliotheque/backend') {
                     sh 'docker build -t bibili-java .'
-                    sh 'docker build -t ajc/bibliotheque-front tp-bibliotheque/frontend/bibliotheque'
+                    sh 'docker build -t bibili-front'
                 }
             }
         }
