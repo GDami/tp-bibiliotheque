@@ -13,7 +13,7 @@ export class CollectionService {
 
 
   private http: HttpClient = inject(HttpClient);
-  private apiUrl: string = '/api/collection';
+  private apiUrl: string = '/collection';
 
   public findAll(): Observable<Collection[]> {
     return this.http.get<Collection[]>(this.apiUrl);

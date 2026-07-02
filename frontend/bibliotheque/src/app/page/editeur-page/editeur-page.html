@@ -5,24 +5,12 @@
     <input type="text" formControlName="nom" placeholder="Nom"/>
   </div>
 
-  <div *ngIf="formEditeur.get('nom')?.dirty && formEditeur.get('nom')?.hasError('required')">
-    Le message d'erreur comme quoi le nom est obligatoire !!
-  </div>
-
   <div *ngIf="formCtrlNom.dirty && formCtrlNom.hasError('required')">
     Le message d'erreur comme quoi le nom est obligatoire !!
   </div>
 
   <div>
-    <input [disabled]="formEditeur.invalid" type="submit" [value]="editingEditeurId ? 'Modifier' : 'Ajouter'" />
-  </div>
-
-  <div>
     <input type="text" formControlName="pays" placeholder="Pays"/>
-  </div>
-
-  <div *ngIf="formEditeur.get('pays')?.dirty && formEditeur.get('pays')?.hasError('required')">
-    Le message d'erreur comme quoi le pays est obligatoire !!
   </div>
 
   <div *ngIf="formCtrlPays.dirty && formCtrlPays.hasError('required')">

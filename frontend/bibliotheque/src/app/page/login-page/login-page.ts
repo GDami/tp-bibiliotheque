@@ -6,8 +6,8 @@ import { AuthService } from '../../service/auth-service';
 @Component({
   selector: 'app-login-page',
   imports: [ ReactiveFormsModule ],
-  templateUrl: './login.html',
-  styleUrl: './login.css',
+  templateUrl: './login-page.html',
+  styleUrl: './login-page.css',
 })
 export class LoginPage implements OnInit {
   protected formAuth!: FormGroup;
