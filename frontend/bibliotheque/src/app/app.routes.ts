@@ -39,5 +39,5 @@ export const routes: Routes = [
   },
 
   { path: 'login', component: LoginPage },
-  { path: '', redirectTo: 'navigation', pathMatch: 'full' }
+  { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];

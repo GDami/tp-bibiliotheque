@@ -8,8 +8,8 @@ import { Collection } from '../../model/collection';
 @Component({
   selector: 'app-Collection-page',
   imports: [ CommonModule, FormsModule ],
-  templateUrl: './Collection-page.html',
-  styleUrl: './Collection-page.css',
+  templateUrl: './collection-page.html',
+  styleUrl: './collection-page.css',
 })
 export class CollectionPage implements OnInit {
   private collectionService: CollectionService = inject(CollectionService);
